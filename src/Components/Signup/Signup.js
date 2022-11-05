@@ -4,6 +4,14 @@ import Logo from '../../olx-logo.png';
 import './Signup.css';
 
 export default function Signup() {
+  const [userData, setUserData] = useState({ username: '', email: '', phone: 0, password: '' })
+
+  function handleOnChange(e) {
+    setUserData((data) => {
+      return { ...data, [e.target.name]: e.target.value }
+
+    })
+  }
   return (
     <div>
       <div className="signupParentDiv">
@@ -12,16 +20,18 @@ export default function Signup() {
           <label htmlFor="fname">Username</label>
           <br />
           <input
+            onChange={(e) => handleOnChange(e)}
             className="input"
             type="text"
             id="fname"
-            name="name"
+            name="username"
             defaultValue="John"
           />
           <br />
           <label htmlFor="fname">Email</label>
           <br />
           <input
+            onChange={(e) => handleOnChange(e)}
             className="input"
             type="email"
             id="fname"
@@ -32,6 +42,7 @@ export default function Signup() {
           <label htmlFor="lname">Phone</label>
           <br />
           <input
+            onChange={(e) => handleOnChange(e)}
             className="input"
             type="number"
             id="lname"
@@ -42,6 +53,7 @@ export default function Signup() {
           <label htmlFor="lname">Password</label>
           <br />
           <input
+            onChange={(e) => handleOnChange(e)}
             className="input"
             type="password"
             id="lname"
